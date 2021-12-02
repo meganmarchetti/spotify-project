@@ -26,8 +26,10 @@ $( document ).ready(function() {
    let redirect_uri = "https://fervent-yonath-82bf73.netlify.app"; 
   //  let redirect_uri = "https://localhost:5500/callback";
 
+    let scope = "user-read-playback-state user-read-currently-playing user-follow-read user-library-read user-read-playback-position user-top-read user-read-recently-played";
 
-   const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
+
+   const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&scope=${scope}&response_type=token&redirect_uri=${redirect_uri}`;
    // Don't authorize if we have an access token already
    if(accessToken == null || accessToken == "" || accessToken == undefined){
      window.location.replace(redirect);
