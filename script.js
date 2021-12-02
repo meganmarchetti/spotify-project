@@ -20,13 +20,11 @@ $( document ).ready(function() {
    const accessToken = getUrlParameter("access_token");
    console.log(accessToken);
 
-   // AUTHORIZE with Spotify (if needed)
-   // *************** REPLACE THESE VALUES! *************************
+
    let client_id = "db818a3b9a634a46a6bc567cf3f03354";
-   // Use the following site to convert your regular url to the encoded version:
-   // https://www.url-encode-decode.com/
-   let redirect_uri = "http://localhost:8888/callback"; // GitHub Pages URL or whatever your public url to this app is
-   // *************** END *************************
+
+   let redirect_uri = "https://fervent-yonath-82bf73.netlify.app"; 
+
 
    const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
    // Don't authorize if we have an access token already
@@ -41,7 +39,7 @@ $( document ).ready(function() {
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
-      //console.log(data);
+      console.log(data);
       
       var ppic = data.images[0].url;
       var fwers = data.followers.total;
