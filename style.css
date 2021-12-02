@@ -13,4 +13,58 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    background-color: lavender;
+}
+
+.pContainer {
+    background-color: indigo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin: 20px;
+}
+
+#propic img {
+    /* border: 2px solid indigo; */
+    border-radius: 50%;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    max-width: 200px;
+}
+
+#uname {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+#followers {
+    font-size: 20px;
+    color: #fff;
+}
+
+.pContainer p {
+    font-size: 15px;
+    color: rgb(198, 198, 250);
+    font-weight: bold;
+    margin: 0;
+}
+
+.proinfo {
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.logo img {
+    height: 30px;
+    width: 30px;
 }

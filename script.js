@@ -18,12 +18,13 @@ $( document ).ready(function() {
 
    // Get Access Token
    const accessToken = getUrlParameter("access_token");
-   console.log(accessToken);
+  //  console.log(accessToken);
 
 
    let client_id = "db818a3b9a634a46a6bc567cf3f03354";
 
    let redirect_uri = "https://fervent-yonath-82bf73.netlify.app"; 
+  //  let redirect_uri = "https://localhost:5500/callback";
 
 
    const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
@@ -34,7 +35,7 @@ $( document ).ready(function() {
 
    $.ajax({
     type: "GET",
-    url: "https://api.spotify.com/v1/users/meegan98",
+    url: "https://api.spotify.com/v1/me",
     headers: {
        'Authorization' : 'Bearer ' + accessToken
     },
