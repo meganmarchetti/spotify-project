@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>My Project</title>
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <h1>Megan Takes on Spotify</h1>
+    <h1>Your Spotify</h1>
     <div class="pContainer">
         <div id="propic"></div>
         <div class="proinfo">
@@ -19,9 +19,144 @@
             <p>Followers: </p>
             <div id="followers"></div>
             <div id="plink"></div>
-            <!-- <div class="logo"><img src="/pics/spot.png" alt=""></div> -->
+            
         </div>
+        <div class="logo"><img src="/spot.png" alt=""></div>
+    </div>
+    <h2>Browse </h2>
+    <div class="container">
         
+        
+        <div class="ta">
+            <button class="ta-btn" id="ta-btn-modal">Top Artists</button>
+        </div>
+        <div class="tt">
+            <button class="tt-btn" id="tt-btn-modal">Top Tracks</button>
+        </div>
+        <div class="rl">
+            <button class="rl-btn" id="rl-btn-modal">Recently Listened</button>
+        </div>
+        <!-- <div class="s-btn">
+
+        </div> -->
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="ta-modal" id="ta-modal">
+        <button class="ta-close" id="ta-close"><i class="fa fa-times" title="close"></i></button>
+        <h3>Top Artists</h3>
+        <div class="topContainer">
+        
+            <div class="art">
+                <div id="pic1"></div>
+                    <div class="artinfo">
+                        <p>Artist: </p>
+                        <p id="name1"></p>
+                        <p>Genre: </p>
+                        <p id="genre1"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="art">
+                <div id="pic2"></div>  
+                    <div class="artinfo">
+                        <p>Artist: </p>
+                        <p id="name2"></p>
+                        <p>Genre: </p>
+                        <p id="genre2"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="art">
+                <div id="pic3"></div>
+                    <div class="artinfo">
+                        <p>Artist: </p>
+                        <p id="name3"></p>
+                        <p>Genre: </p>
+                        <p id="genre3"></p>
+                    </div>
+            
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="tt-modal" id="tt-modal">
+        <button class="tt-close" id="tt-close"><i class="fa fa-times" title="close"></i></button>
+        <h3>Top Tracks</h3>
+        <div class="topContainer">
+            <div class="trk">
+                <div id="trpic1"></div>
+                    <div class="trinfo">
+                        <p id="trname1"></p>
+                        <p id="trart1"></p>
+                        <p id="tralb1"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="trk">
+                <div id="trpic2"></div>  
+                    <div class="trinfo">
+                        <p id="trname2"></p>
+                        <p id="trart2"></p>
+                        <p id="tralb2"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="trk">
+                <div id="trpic3"></div>
+                    <div class="trinfo">
+                        <p id="trname3"></p>
+                        <p id="trart3"></p>
+                        <p id="tralb3"></p>
+                    </div>
+            
+            
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="rl-modal" id="rl-modal">
+        <button class="rl-close" id="rl-close"><i class="fa fa-times" title="close"></i></button>
+        <h3>Recently Listened</h3>
+        <div class="topContainer">
+            <div class="rec">
+                <div id="rpic1"></div>
+                    <div class="rinfo">
+                        <p id="rname1"></p>
+                        <p id="rart1"></p>
+                        <p id="ralb1"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="rec">
+                <div id="rpic2"></div>  
+                    <div class="rinfo">
+                        <p id="rname2"></p>
+                        <p id="rart2"></p>
+                        <p id="ralb2"></p>
+                
+                    </div>
+            
+            </div>
+            <div class="rec">
+                <div id="rpic3"></div>
+                    <div class="rinfo">
+                        <p id="rname3"></p>
+                        <p id="rart3"></p>
+                        <p id="ralb3"></p>
+                    </div>
+            
+            
+            </div>
+            
+        </div>
     </div>
 
     <script src="script.js"></script>
