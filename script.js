@@ -46,9 +46,9 @@ document.getElementById('overlay').addEventListener('click', function() {
 
 
 $( document ).ready(function() {
-    // Helper Function to Extract Access Token for URL
+    // extract access token
    const getUrlParameter = (sParam) => {
-     let sPageURL = window.location.search.substring(1),////substring will take everything after the https link and split the #/&
+     let sPageURL = window.location.search.substring(1),//substring will take everything after the https link and split the #/&
          sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split("#") : [],
          sParameterName,
          i;
@@ -62,21 +62,18 @@ $( document ).ready(function() {
      }
  };
 
-   // Get Access Token
    const accessToken = getUrlParameter("access_token");
-  //  console.log(accessToken);
 
 
    let client_id = "db818a3b9a634a46a6bc567cf3f03354";
 
    let redirect_uri = "https://fervent-yonath-82bf73.netlify.app"; 
-  //  let redirect_uri = "http://localhost:8888/callback";
 
     let scope = "user-read-playback-state user-read-currently-playing user-read-private user-follow-read user-library-read user-read-playback-position user-top-read user-read-recently-played user-read-email";
 
 
    const redirect = `https://accounts.spotify.com/authorize?response_type=token&client_id=${client_id}&scope=${scope}&redirect_uri=${redirect_uri}`;
-   // Don't authorize if we have an access token already
+   // don't authorize if we have an access token already
    if(accessToken == null || accessToken == "" || accessToken == undefined){
      window.location.replace(redirect);
    }
@@ -88,7 +85,6 @@ $( document ).ready(function() {
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
-    //   console.log(data);
       
       var ppic = data.images[0].url;
       var fwers = data.followers.total;
@@ -119,8 +115,7 @@ $.ajax({
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
-    //   console.log(data);
-  
+
       var top1 = data.items[0].name;
       var top2 = data.items[1].name;
       var top3 = data.items[2].name;
@@ -166,7 +161,6 @@ $.ajax({
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
-    //   console.log(data);
   
       var tname1 = data.items[0].name;
       var tname2 = data.items[1].name;
@@ -224,7 +218,6 @@ $.ajax({
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
-      console.log(data);
   
       var tn1 = data.items[0].track.name;
       var tn2 = data.items[1].track.name;

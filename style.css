@@ -36,7 +36,6 @@ h1 {
 
 #propic img {
     border: 2px solid cadetblue;
-    /* border-radius: 50%; */
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
     margin: 20px;
     max-width: 200px;
@@ -162,7 +161,7 @@ button {
     height: auto;
     margin: 0 auto;
     padding: 30px;
-    background: #fff;
+    background: rgb(198, 250, 246);
     border-radius: 4px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
@@ -174,6 +173,8 @@ button {
     right: 10px;
     top: 10px;
     font-size: 20px;
+    color: rgb(25, 41, 41);
+    background-color: transparent;
 }
 
 .overlay {
@@ -206,7 +207,7 @@ button {
 
 .topContainer p {
     font-size: 15px;
-    color: indigo;
+    color: rgb(25, 41, 41);
     margin: 0;
     padding-left: 10px;
     font-weight: bold;
@@ -232,4 +233,16 @@ button {
 
 .container {
     display: flex;
+}
+
+.art,
+.rec,
+.trk {
+    margin: 20px;
+}
+
+.art img,
+.rec img,
+.trk img {
+    border: rgb(25, 41, 41) solid 2px;
 }
