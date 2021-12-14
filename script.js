@@ -263,7 +263,7 @@ $.ajax({
     type: "GET",
     url: "https://api.spotify.com/v1/artists/5K4W6rqBFWDnAN6FQUkS6x/top-tracks",
     headers: {
-       'Authorization' : 'Bearer ' + aToken
+       'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
       console.log(data);
