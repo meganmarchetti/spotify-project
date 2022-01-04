@@ -141,7 +141,7 @@ $.ajax({
 
   $.ajax({
     type: "GET",
-    url: "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=3&offset=0",
+    url: "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=10&offset=0",
     headers: {
        'Authorization' : 'Bearer ' + accessToken
     },
