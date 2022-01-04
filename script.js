@@ -110,46 +110,31 @@ $( document ).ready(function() {
 
 $.ajax({
     type: "GET",
-    url: "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=3&offset=0",
+    url: "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=0",
     headers: {
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
+      console.log(data);
+      const top = document.getElementById("topContainer");
+      getTop(data.items);
 
-      var top1 = data.items[0].name;
-      var top2 = data.items[1].name;
-      var top3 = data.items[2].name;
-  
-      var pic1 = data.items[0].images[0].url;
-      var pic2 = data.items[1].images[0].url;
-      var pic3 = data.items[2].images[0].url;
-  
-      var genre1 = data.items[0].genres[0];
-      var genre2 = data.items[1].genres[0];
-      var genre3 = data.items[2].genres[3];
-  
-      var pics1 = document.getElementById("pic1");
-      var pics2 = document.getElementById("pic2");
-      var pics3 = document.getElementById("pic3");
-  
-      var names1 = document.getElementById("name1");
-      var names2 = document.getElementById("name2");
-      var names3 = document.getElementById("name3");
-  
-      var genres1 = document.getElementById("genre1");
-      var genres2 = document.getElementById("genre2");
-      var genres3 = document.getElementById("genre3");
-  
-      pics1.innerHTML = "<img src=" + pic1 + ">";
-      pics2.innerHTML = "<img src=" + pic2 + ">";
-      pics3.innerHTML = "<img src=" + pic3 + ">";
-      names1.textContent = top1;
-      names2.textContent = top2;
-      names3.textContent = top3;
-      genres1.textContent = genre1;
-      genres2.textContent = genre2;
-      genres3.textContent = genre3;
-    
+      function getTop(arts) {
+          top.innerHTML = "";
+
+          arts.forEach((art) => {
+              const { name, images, genres  } = art;
+              const artEl = document.createElement('div');
+              artEl.classList.add('art');
+              artEl.innerHTML = `
+              <img src="${images[1].url}">
+              <div class="tname">${name}</div>
+              <div class="genre">${genres[0]}</div>
+               `;
+              top.appendChild(artEl);
+          });
+      }
+      console.log(top);
     },
     dataType: "json"
   });
@@ -162,50 +147,27 @@ $.ajax({
     },
     success: function(data) {
   
-      var tname1 = data.items[0].name;
-      var tname2 = data.items[1].name;
-      var tname3 = data.items[2].name;
-  
-      var tpic1 = data.items[0].album.images[1].url;
-      var tpic2 = data.items[1].album.images[1].url;
-      var tpic3 = data.items[2].album.images[1].url;
-  
-      var aname1 = data.items[0].artists[0].name;
-      var aname2 = data.items[1].artists[0].name;
-      var aname3 = data.items[2].artists[0].name;
+      console.log(data);
+      const topt = document.getElementById("topt");
+      getTopT(data.items);
 
-      var alb1 = data.items[0].album.name;
-      var alb2 = data.items[1].album.name;
-      var alb3 = data.items[2].album.name;
-  
-      var trpic1 = document.getElementById("trpic1");
-      var trpic2 = document.getElementById("trpic2");
-      var trpic3 = document.getElementById("trpic3");
-  
-      var trnames1 = document.getElementById("trname1");
-      var trnames2 = document.getElementById("trname2");
-      var trnames3 = document.getElementById("trname3");
-  
-      var trart1 = document.getElementById("trart1");
-      var trart2 = document.getElementById("trart2");
-      var trart3 = document.getElementById("trart3");
+      function getTopT(trks) {
+          topt.innerHTML = "";
 
-      var tralb1 = document.getElementById("tralb1");
-      var tralb2 = document.getElementById("tralb2");
-      var tralb3 = document.getElementById("tralb3");
-  
-      trpic1.innerHTML = "<img src=" + tpic1 + ">";
-      trpic2.innerHTML = "<img src=" + tpic2 + ">";
-      trpic3.innerHTML = "<img src=" + tpic3 + ">";
-      trnames1.textContent = tname1;
-      trnames2.textContent = tname2;
-      trnames3.textContent = tname3;
-      trart1.textContent = aname1;
-      trart2.textContent = aname2;
-      trart3.textContent = aname3;
-      tralb1.textContent = alb1;
-      tralb2.textContent = alb2;
-      tralb3.textContent = alb3;
+          trks.forEach((trk) => {
+              const { name, images, album, artists  } = trk;
+              const trkEl = document.createElement('div');
+              trkEl.classList.add('trk');
+              trkEl.innerHTML = `
+              <img src="${album.images[1].url}">
+              <div class="tname">${name}</div>
+              <div class="artist">${artists[0].name}</div>
+              <div class="album">${album.name}</div>
+               `;
+              topt.appendChild(trkEl);
+          });
+      }
+      console.log(topt);
     
     },
     dataType: "json"
@@ -213,50 +175,35 @@ $.ajax({
 
   $.ajax({
     type: "GET",
-    url: "https://api.spotify.com/v1/me/player/recently-played",
+    url: "https://api.spotify.com/v1/me/player/recently-played?limit=10",
     headers: {
        'Authorization' : 'Bearer ' + accessToken
     },
     success: function(data) {
   
-      var tn1 = data.items[0].track.name;
-      var tn2 = data.items[1].track.name;
-      var tn3 = data.items[2].track.name;
+      console.log(data);
+      const rl = document.getElementById("rl");
+      getRec(data.items);
   
-      var tp1 = data.items[0].track.album.images[1].url;
-      var tp2 = data.items[1].track.album.images[1].url;
-      var tp3 = data.items[2].track.album.images[1].url;
+      function getRec(recs) {
+        rl.innerHTML = "";
   
-      var a1 = data.items[0].track.artists[0].name;
-      var a2 = data.items[1].track.artists[0].name;
-      var a3 = data.items[2].track.artists[0].name;
-
-  
-      var rpic1 = document.getElementById("rpic1");
-      var rpic2 = document.getElementById("rpic2");
-      var rpic3 = document.getElementById("rpic3");
-  
-      var rnames1 = document.getElementById("rname1");
-      var rnames2 = document.getElementById("rname2");
-      var rnames3 = document.getElementById("rname3");
-  
-      var rart1 = document.getElementById("rart1");
-      var rart2 = document.getElementById("rart2");
-      var rart3 = document.getElementById("rart3");
-
-  
-      rpic1.innerHTML = "<img src=" + tp1 + ">";
-      rpic2.innerHTML = "<img src=" + tp2 + ">";
-      rpic3.innerHTML = "<img src=" + tp3 + ">";
-      rnames1.textContent = tn1;
-      rnames2.textContent = tn2;
-      rnames3.textContent = tn3;
-      rart1.textContent = a1;
-      rart2.textContent = a2;
-      rart3.textContent = a3;
-
+        recs.forEach((rec) => {
+            const { track, name, images, album, artists  } = rec;
+            const rlEl = document.createElement('div');
+            rlEl.classList.add('rec');
+            rlEl.innerHTML = `
+            <img src="${track.album.images[1].url}">
+            <div class="tname">${track.name}</div>
+            <div class="artist">${track.artists[0].name}</div>
+            <div class="album">${track.album.name}</div>
+             `;
+            rl.appendChild(rlEl);
+        });
+    }
     
     },
     dataType: "json"
   });
+
  });
