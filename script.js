@@ -116,7 +116,7 @@ $.ajax({
     },
     success: function(data) {
       console.log(data);
-      const top = document.getElementById("topContainer");
+      const top = document.getElementById("top");
       getTop(data.items);
 
       function getTop(arts) {
@@ -155,7 +155,7 @@ $.ajax({
           topt.innerHTML = "";
 
           trks.forEach((trk) => {
-              const { name, images, album, artists  } = trk;
+              const { name, album, artists  } = trk;
               const trkEl = document.createElement('div');
               trkEl.classList.add('trk');
               trkEl.innerHTML = `
@@ -189,7 +189,7 @@ $.ajax({
         rl.innerHTML = "";
   
         recs.forEach((rec) => {
-            const { track, name, images, album, artists  } = rec;
+            const { track } = rec;
             const rlEl = document.createElement('div');
             rlEl.classList.add('rec');
             rlEl.innerHTML = `
